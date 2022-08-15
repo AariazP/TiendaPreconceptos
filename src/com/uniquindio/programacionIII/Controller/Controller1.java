@@ -28,9 +28,9 @@ public class Controller1 {
 
     public void changeFrame(ActionEvent e) {
     	if(e.getSource() == btnIrCliente) {
-    		System.out.println("Abro el frame de clientes");
+    		main.abrirFrameClientes();
     	}else if(e.getSource() == btnIrProductos) {
-    		System.out.println("Abro el frame de productos");
+    		main.abrirProductos();
     	}
     	
     }
