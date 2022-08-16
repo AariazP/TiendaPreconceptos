@@ -74,4 +74,11 @@ public class ICliente implements CRUDTienda<Cliente> {
 		ClienteNatural clienteNatural = new ClienteNatural(nombre, apellidos, identificacion, direccion, telefono, email, fecha);
 		crear(clienteNatural);
 	}
+
+	public void crearClienteJuridico(String nombre, String apellidos, String identificacion, String direccion,
+			String telefono, String nit, String idTributaria) throws TiendaExceptions {
+		
+		ClienteJuridico clienteJuridico = new ClienteJuridico(nombre, apellidos, identificacion, direccion, telefono, nit, idTributaria);
+		crear(clienteJuridico);
+	}
 }

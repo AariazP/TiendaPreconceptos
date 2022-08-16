@@ -32,14 +32,20 @@ public class Singleton {
 
 	public static void crearClienteNatural(String nombre, String apellidos, String identificacion, String direccion,
 			String telefono, String email, LocalDate fecha) throws TiendaExceptions {
-		
+
 		getInstance().crearClienteNatural(nombre, apellidos, identificacion, direccion, telefono, email, fecha);
-		
+
 	}
 
 
 	public static ArrayList<Cliente> getClientes() {
 		return getInstance().getListaClientes();
+	}
+
+
+	public static void crearClienteJuridico(String nombre, String apellidos, String identificacion, String direccion,
+			String telefono, String nit, String idTributaria) throws TiendaExceptions {
+		getInstance().crearClienteJuridico(nombre,apellidos,identificacion,direccion,telefono, nit, idTributaria); 		
 	}
 
 }

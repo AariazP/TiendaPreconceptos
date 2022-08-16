@@ -5,7 +5,6 @@ import java.io.IOException;
 import com.uniquindio.programacionIII.Application.Main;
 import com.uniquindio.programacionIII.Model.Cliente;
 import com.uniquindio.programacionIII.Model.Singleton;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,7 +17,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import lombok.Data;
 
 @Data
@@ -61,6 +59,7 @@ public class Controller2 {
     private TableColumn<Cliente, String> colTipo = new TableColumn<>();
 
 	private CrearClienteNatural controllerClienteNatural;
+	private CrearClienteJuridico controllerClienteJuridico;
 
 	@FXML
 	void actualizarCliente(ActionEvent event) {
@@ -106,11 +105,13 @@ public class Controller2 {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/uniquindio/programacionIII/View/CrearClienteJuridico.fxml"));
 			Parent root;
 			root = loader.load();
-			controllerClienteNatural = loader.getController();
+			controllerClienteJuridico = loader.getController();
+			controllerClienteJuridico.setMain(main);
 			Scene scene = new Scene(root);
 			Stage stage = new Stage();
 			stage.setScene(scene);
 			stage.showAndWait();
+			actualizarTablaClientes();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

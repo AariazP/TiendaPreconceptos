@@ -44,4 +44,12 @@ public class Tienda {
 		return clientes.getClientes();
 	}
 
+
+	public void crearClienteJuridico(String nombre, String apellidos, String identificacion, String direccion,
+			String telefono, String nit, String idTributaria) throws TiendaExceptions {
+		
+		clientes.crearClienteJuridico(nombre, apellidos, identificacion, direccion, telefono, nit, idTributaria);
+		
+	}
+
 }
