@@ -11,8 +11,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class IProducto {
+	private ArrayList<Producto> productos;
 
-    private ArrayList<Producto> productos;
+    public IProducto() {
+    	
+    	productos = new ArrayList<>();
+	}
+
 
 
 }

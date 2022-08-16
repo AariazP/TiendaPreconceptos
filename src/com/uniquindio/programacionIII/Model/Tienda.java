@@ -1,5 +1,10 @@
 package com.uniquindio.programacionIII.Model;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import com.uniquindio.programacionIII.Exceptions.TiendaExceptions;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +23,25 @@ public class Tienda {
 
     public Tienda(String ciudad){
         this.ciudad = ciudad;
+        clientes = new ICliente();
+        productos = new IProducto();
     }
+
+
+	public Tienda() {
+		clientes = new ICliente();
+        productos = new IProducto();
+	}
+
+	public void crearClienteNatural(String nombre, String apellidos, String identificacion, String direccion, String telefono,
+			String email, LocalDate fecha) throws TiendaExceptions {
+		
+		clientes.crearClienteNatural(nombre, apellidos, identificacion, direccion, telefono, email, fecha);
+	}
+
+
+	public ArrayList<Cliente> getListaClientes() {
+		return clientes.getClientes();
+	}
 
 }
