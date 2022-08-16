@@ -64,8 +64,25 @@ public class Controller2 {
 	}		
 	
 	public void crearClienteJuridico(ActionEvent event) {
+		crearClienteJuridico();
+	}
+	private void crearClienteJuridico() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/uniquindio/programacionIII/View/CrearClienteJuridico.fxml"));
+			Parent root;
+			root = loader.load();
+			controllerClienteNatural = loader.getController();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.showAndWait();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
+
 	@FXML
 	void eliminarCliente(ActionEvent event) {
 		System.out.println("eliminar");

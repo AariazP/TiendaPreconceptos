@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="455.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="455.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <children>
       <AnchorPane layoutX="32.0" layoutY="27.0" prefHeight="410.0" prefWidth="392.0" style="-fx-background-color: BLUE; -fx-background-radius: 40;">
          <children>
@@ -56,33 +55,33 @@
             </VBox>
             <VBox layoutX="144.0" layoutY="64.0" prefHeight="216.0" prefWidth="226.0">
                <children>
-                  <TextField />
-                  <TextField>
+                  <TextField promptText="Escriba su nombre..." />
+                  <TextField promptText="Escriba sus apellidos...">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField>
+                  <TextField promptText="Escriba su identificacion...">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField>
+                  <TextField promptText="Escriba su direccion...">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField>
+                  <TextField promptText="Escriba su telefono...">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField>
+                  <TextField promptText="Escriba su nit...">
                      <VBox.margin>
                         <Insets top="6.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField>
+                  <TextField promptText="Escriba su id tributaria...">
                      <VBox.margin>
                         <Insets top="7.0" />
                      </VBox.margin>
