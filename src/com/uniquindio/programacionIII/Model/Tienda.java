@@ -52,4 +52,15 @@ public class Tienda {
 		
 	}
 
+
+	public void eliminarCliente(Cliente clienteSelected) throws TiendaExceptions {
+		clientes.eliminar(clienteSelected);
+	}
+
+
+	public void actualizarClienteNatural(Cliente cliente, String nombre, String apellidos, String identificacion, String direccion,
+			String telefono, String email, LocalDate fecha) {
+		clientes.actualizarClienteNatural(cliente, nombre, apellidos, identificacion, direccion, telefono, email, fecha);
+	}
+
 }

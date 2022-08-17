@@ -3,7 +3,9 @@ package com.uniquindio.programacionIII.Controller;
 import java.io.IOException;
 
 import com.uniquindio.programacionIII.Application.Main;
+import com.uniquindio.programacionIII.Exceptions.TiendaExceptions;
 import com.uniquindio.programacionIII.Model.Cliente;
+import com.uniquindio.programacionIII.Model.ClienteNatural;
 import com.uniquindio.programacionIII.Model.Singleton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,7 +26,7 @@ public class Controller2 {
 
 
 	private Main main;
-	
+
 	@FXML
 	private Button btnActualizar;
 
@@ -42,36 +44,82 @@ public class Controller2 {
 
 	@FXML
 	private TableView<Cliente> tblClientes = new TableView<>();
-	
+
 	@FXML
 	private ObservableList<Cliente> lista = FXCollections.observableArrayList();
-	
+
 	@FXML
-    private TableColumn<Cliente, Integer> colD = new TableColumn<>();
+	private TableColumn<Cliente, Integer> colD = new TableColumn<>();
 
-    @FXML
-    private TableColumn<Cliente, String> colNombre = new TableColumn<>();
+	@FXML
+	private TableColumn<Cliente, String> colNombre = new TableColumn<>();
 
-    @FXML
-    private TableColumn<Cliente, String> colTelefono = new TableColumn<>();
+	@FXML
+	private TableColumn<Cliente, String> colTelefono = new TableColumn<>();
 
-    @FXML
-    private TableColumn<Cliente, String> colTipo = new TableColumn<>();
+	@FXML
+	private TableColumn<Cliente, String> colTipo = new TableColumn<>();
 
 	private CrearClienteNatural controllerClienteNatural;
+
 	private CrearClienteJuridico controllerClienteJuridico;
+
+	private ActualizarClienteNatural controllerActualizarClienteNatural;
+
+	private Stage stageNatural, stageJuridico;
+
 
 	@FXML
 	void actualizarCliente(ActionEvent event) {
-		System.out.println("Actualizar");
+		Cliente clienteSelected = tblClientes.getSelectionModel().getSelectedItem();
+
+		if(clienteSelected == null) {
+
+			main.mostrarAlerta("Para actualizar un cliente /n seleccione uno de la tabla");
+
+		}else {
+
+
+			if(clienteSelected instanceof ClienteNatural) {
+
+				mostrarActualizarFrame(clienteSelected);
+
+
+			}else {
+
+			}
+
+			main.mostrarAlerta("Cliente actualizado");
+			actualizarTablaClientes();
+		}
+	}
+
+
+	private void mostrarActualizarFrame(Cliente clienteSelected) {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/uniquindio/programacionIII/View/ActualizarClienteNatural.fxml"));
+		Parent root = null;
+		try {
+			root = loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		controllerActualizarClienteNatural = loader.getController();
+		controllerActualizarClienteNatural.setMain(main);
+		controllerActualizarClienteNatural.setCliente(clienteSelected);
+		Scene scene = new Scene(root);
+		stageJuridico = new Stage();
+		stageJuridico.setScene(scene);
+		stageJuridico.showAndWait();
+		actualizarTablaClientes();
 	}
 
 	@FXML
 	void crearClienteNatural(ActionEvent event) {
 		crearClienteNatural();
 	}
-	
-	
+
+
 	public void actualizarTablaClientes() {
 		lista.clear();
 		tblClientes.getItems().clear();
@@ -87,16 +135,16 @@ public class Controller2 {
 			controllerClienteNatural = loader.getController();
 			controllerClienteNatural.setMain(main);
 			Scene scene = new Scene(root);
-			Stage stage = new Stage();
-			stage.setScene(scene);
-			stage.showAndWait();
+			stageNatural = new Stage();
+			stageNatural.setScene(scene);
+			stageNatural.showAndWait();
 			actualizarTablaClientes();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}		
-	
+
 	public void crearClienteJuridico(ActionEvent event) {
 		crearClienteJuridico();
 	}
@@ -108,20 +156,32 @@ public class Controller2 {
 			controllerClienteJuridico = loader.getController();
 			controllerClienteJuridico.setMain(main);
 			Scene scene = new Scene(root);
-			Stage stage = new Stage();
-			stage.setScene(scene);
-			stage.showAndWait();
+			stageJuridico = new Stage();
+			stageJuridico.setScene(scene);
+			stageJuridico.showAndWait();
 			actualizarTablaClientes();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@FXML
 	void eliminarCliente(ActionEvent event) {
-		System.out.println("eliminar");
+		Cliente clienteSelected = tblClientes.getSelectionModel().getSelectedItem();
+
+		if(clienteSelected == null) {
+			main.mostrarAlerta("Para eliminar un cliente /n seleccione uno de la tabla");
+		}else {
+			try {
+				Singleton.eliminarCliente(clienteSelected);
+				main.mostrarAlerta("Cliente eliminado");
+				actualizarTablaClientes();
+			} catch (TiendaExceptions e) {
+				main.mostrarAlerta(e.getMessage());
+			}
+		}
 	}
 
 	@FXML
@@ -130,10 +190,10 @@ public class Controller2 {
 	}
 
 	@FXML
-	void reemplazarCliente(ActionEvent event) {
-		System.out.println("reemplazar");
+	void irLogin(ActionEvent event) {
+
 	}
-	
+
 	@FXML
 	public void initialize() {
 		this.colD.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -141,6 +201,10 @@ public class Controller2 {
 		this.colTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
 		this.colTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 	}
-	
-	
+
+	public void cerrarFrameClienteNatura() {
+		stageNatural.close();
+	}
+
+
 }

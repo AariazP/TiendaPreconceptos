@@ -56,7 +56,9 @@ public class CrearClienteJuridico {
 				main.mostrarAlerta("Cliente creado con exito");
 
 			}else {
-				throw new EscrituraException("Ya existe un cliente con esas caracteristicas");
+				StringBuilder str = new StringBuilder("Ya existe un cliente /n con esas caracteristicas");
+				
+				throw new EscrituraException(str.toString());
 			}
 
 		} catch (Exception e) {

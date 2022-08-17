@@ -35,5 +35,5 @@ public interface CRUDTienda<T> {
 	 * MÉTODO QUE PERMITE ELIMINAR UN PRODUCTO DE TIPO T
 	 * @param obj
 	 */
-	void Eliminar(T obj)  throws TiendaExceptions; 
+	void eliminar(T obj)  throws TiendaExceptions; 
 }

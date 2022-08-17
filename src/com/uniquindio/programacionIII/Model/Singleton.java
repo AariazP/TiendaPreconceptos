@@ -48,4 +48,16 @@ public class Singleton {
 		getInstance().crearClienteJuridico(nombre,apellidos,identificacion,direccion,telefono, nit, idTributaria); 		
 	}
 
+
+	public static void eliminarCliente(Cliente clienteSelected) throws TiendaExceptions {
+		getInstance().eliminarCliente(clienteSelected);
+	}
+
+
+	public static void actualizarClienteNatural(Cliente cliente, String nombre, String apellidos, String identificacion,
+			String direccion, String telefono, String email, LocalDate fecha) {
+		
+		getInstance().actualizarClienteNatural(cliente,nombre, apellidos, identificacion, direccion, telefono, email, fecha);
+	}
+
 }

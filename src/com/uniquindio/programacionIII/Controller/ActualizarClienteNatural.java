@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import com.uniquindio.programacionIII.Application.Main;
 import com.uniquindio.programacionIII.Exceptions.LecturaException;
 import com.uniquindio.programacionIII.Exceptions.TiendaExceptions;
+import com.uniquindio.programacionIII.Model.Cliente;
 import com.uniquindio.programacionIII.Model.Singleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +14,7 @@ import javafx.scene.control.TextField;
 import lombok.Data;
 
 @Data
-public class CrearClienteNatural {
+public class ActualizarClienteNatural {
 	
 	private Main main;
 	
@@ -37,6 +38,8 @@ public class CrearClienteNatural {
 
 	@FXML
 	private TextField txtTelefono;
+	
+	private Cliente cliente;
 
 	@FXML
 	void guardarInformacion(ActionEvent event)throws TiendaExceptions {
@@ -54,8 +57,7 @@ public class CrearClienteNatural {
 			if(!nombre.equals("") && !apellidos.equals("") && !telefono.equals("") && !identificacion.equals("")
 					&& !email.equals("") && fecha != null && !direccion.equals("")) {
 				
-				Singleton.crearClienteNatural(nombre, apellidos, identificacion, direccion, telefono, email, fecha);
-				main.cerrarFrameClienteNatura();
+				Singleton.actualizarClienteNatural(cliente, nombre, apellidos, identificacion, direccion, telefono, email, fecha);
 				main.mostrarAlerta("Cliente creado con exito");
 				
 			}else {

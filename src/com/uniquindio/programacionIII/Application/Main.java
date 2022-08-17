@@ -90,4 +90,8 @@ public class Main extends Application {
 		stage2.show();
 	}
 
+	public void cerrarFrameClienteNatura() {
+		controller2.cerrarFrameClienteNatura();
+	}
+
 }

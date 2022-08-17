@@ -2,10 +2,8 @@ package com.uniquindio.programacionIII.Model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import com.uniquindio.programacionIII.Exceptions.EscrituraException;
 import com.uniquindio.programacionIII.Exceptions.TiendaExceptions;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -48,11 +46,10 @@ public class ICliente implements CRUDTienda<Cliente> {
 	 * @param obj
 	 * @return
 	 */
-	private boolean existeCliente(Cliente obj) {
+	public boolean existeCliente(Cliente obj) {
 		
-		clientes.stream().anyMatch(e-> e.equals(obj));
+		return clientes.stream().filter(e -> e.equals(obj)).findFirst().isPresent();
 		
-		return false;
 	}
 
 	@Override
@@ -63,8 +60,11 @@ public class ICliente implements CRUDTienda<Cliente> {
 
 
 	@Override
-	public void Eliminar(Cliente obj) throws TiendaExceptions {
-		// TODO Auto-generated method stub
+	public void eliminar(Cliente obj) throws TiendaExceptions {
+		
+		for (int i = 0; i < clientes.size(); i++) {
+			if(clientes.get(i).equals(obj)) clientes.remove(obj);
+		}
 		
 	}
 
@@ -81,4 +81,20 @@ public class ICliente implements CRUDTienda<Cliente> {
 		ClienteJuridico clienteJuridico = new ClienteJuridico(nombre, apellidos, identificacion, direccion, telefono, nit, idTributaria);
 		crear(clienteJuridico);
 	}
+
+	public void actualizarClienteNatural(Cliente cliente, String nombre, String apellidos, String identificacion, String direccion,
+			String telefono, String email, LocalDate fecha) {
+		
+		ClienteNatural clienteNatural = (ClienteNatural) cliente;
+		
+		clienteNatural.setNombre(nombre);
+		clienteNatural.setApellido(apellidos);
+		clienteNatural.setIdentificacion(identificacion);
+		clienteNatural.setDireccion(direccion);
+		clienteNatural.setTelefono(telefono);
+		clienteNatural.setEmail(email);
+		clienteNatural.setFechaNacimiento(fecha);
+		
+	}
+	
 }
