@@ -64,8 +64,9 @@ public class IProducto implements CRUDTienda<Producto>{
 
 	@Override
 	public void eliminar(Producto obj) throws TiendaExceptions {
-		// TODO Auto-generated method stub
-
+		for (int i = 0; i < productos.size(); i++) {
+			if(productos.get(i) == obj) productos.remove(i);
+		}
 	}
 
 	public void crearproductoEnvasado(String nombre, String descripcion, Integer cantDisponible,
@@ -75,6 +76,62 @@ public class IProducto implements CRUDTienda<Producto>{
 		crear(envasado);
 	}
 
+	public void crearProdcutoPerecedero(String descripcion, Integer cantDisponible, String nombre, Double valor,
+			LocalDate fechaVencimiento) throws TiendaExceptions {
+		Perecedero perecedero = new Perecedero(descripcion, cantDisponible, nombre, valor, fechaVencimiento);
+		crear(perecedero);
+	}
 
+	public void actualizarProductoEnvasado(Envasado productoSelected, String nombre, String descripcion,
+			LocalDate fecha, String pais, Double peso, Double valor, Integer cantDisponible) {
+
+
+		productoSelected.setNombre(nombre);
+		productoSelected.setAboutProduct(descripcion);
+		productoSelected.setFechaEnvasado(fecha);
+		productoSelected.setPais(definirPais(pais));
+		productoSelected.setPeso(peso);
+		productoSelected.setValor(valor);
+		productoSelected.setCantDisponible(cantDisponible);
+		
+	}
+
+	private Paises definirPais(String pais) {
+
+		if(pais.equals("Colombia")) return Paises.COLOMBIA;
+
+		if(pais.equals("Argentina")) return Paises.ARGENTINA;
+
+		if(pais.equals("Chile")) return Paises.CHILE;
+
+		if(pais.equals("Ecuador")) return Paises.ECUADOR;
+
+		if(pais.equals("Peru")) return Paises.PERU;
+
+		return null;
+	}
+
+	public void actualizarProductoPerecedero(Perecedero productoSelected, String nombre, String descripcion,
+			LocalDate fechaVencimiento, Integer cantDisponible, Double valor) {
+		
+		productoSelected.setNombre(nombre);
+		productoSelected.setAboutProduct(descripcion);
+		productoSelected.setFechaVencimiento(fechaVencimiento);
+		productoSelected.setValor(valor);
+		productoSelected.setCantDisponible(cantDisponible);
+	}
+
+	public void actualizarProductoRefrigerado(Refrigerado productoSelected, String nombre, String descripcion,
+			Integer cantDisponible, Double temperatura, Double valor, Boolean aprobado) {
+		
+		productoSelected.setNombre(nombre);
+		productoSelected.setAboutProduct(descripcion);
+		productoSelected.setCantDisponible(cantDisponible);
+		productoSelected.setTemperatura(temperatura);
+		productoSelected.setValor(valor);
+		productoSelected.setAprobado(aprobado);
+		
+	}
+	
 
 }

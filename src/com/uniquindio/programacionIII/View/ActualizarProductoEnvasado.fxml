@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="372.0" style="-fx-background-color: BLUE;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.uniquindio.programacionIII.Controller.ActualizarProductoEnvasado">
+   <children>
+      <Label layoutX="109.0" layoutY="13.0" text="Actualizar producto envasado" textFill="WHITE" />
+      <Separator layoutX="-1.0" layoutY="36.0" prefHeight="5.0" prefWidth="375.0" />
+      <VBox layoutX="25.0" layoutY="61.0" prefHeight="146.0" prefWidth="100.0">
+         <children>
+            <Label text="Nombre" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Valor" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Descripcion" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Cant disponible" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+            <Label layoutX="10.0" layoutY="74.0" text="Fecha envasado" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+            <Label layoutX="10.0" layoutY="106.0" text="Peso" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="135.0" layoutY="64.0" prefHeight="143.0" prefWidth="228.0">
+         <children>
+            <TextField fx:id="txtNombre" promptText="Escriba aqui el nombre..." />
+            <TextField fx:id="txtValor" layoutX="10.0" layoutY="10.0" promptText="Escriba aqui el valor">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="txtDescripcion" promptText="Escriba aqui la descripcion...">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="txtCantDisponible" layoutX="10.0" layoutY="36.0" promptText="Escriba la cantidad disponible...">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <DatePicker fx:id="fechaEnvasado" prefHeight="26.0" prefWidth="241.0" promptText="Seleccione la fecha...">
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </DatePicker>
+            <TextField fx:id="txtPeso" promptText="Escriba el peso del producto...">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <ComboBox fx:id="cmbPaises" prefHeight="26.0" prefWidth="268.0" promptText="Pais de origen...">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </ComboBox>
+         </children>
+      </VBox>
+      <Separator layoutX="-6.0" layoutY="340.0" prefHeight="5.0" prefWidth="381.0" />
+      <Button layoutX="154.0" layoutY="360.0" mnemonicParsing="false" onAction="#guardarInfo" style="-fx-background-color: BLUE; -fx-border-color: WHITE; -fx-border-radius: 10;" text="Guardar" textFill="WHITE" />
+      <Label layoutX="25.0" layoutY="296.0" text="Pais de origen" textFill="WHITE" />
+   </children>
+</AnchorPane>

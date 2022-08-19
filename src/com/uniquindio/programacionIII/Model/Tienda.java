@@ -17,26 +17,26 @@ import lombok.ToString;
 
 public class Tienda {
 
-    private String ciudad;
-    private ICliente clientes;
-    private IProducto productos;
+	private String ciudad;
+	private ICliente clientes;
+	private IProducto productos;
 
 
-    public Tienda(String ciudad){
-        this.ciudad = ciudad;
-        clientes = new ICliente();
-        productos = new IProducto();
-    }
+	public Tienda(String ciudad){
+		this.ciudad = ciudad;
+		clientes = new ICliente();
+		productos = new IProducto();
+	}
 
 
 	public Tienda() {
 		clientes = new ICliente();
-        productos = new IProducto();
+		productos = new IProducto();
 	}
 
 	public void crearClienteNatural(String nombre, String apellidos, String identificacion, String direccion, String telefono,
 			String email, LocalDate fecha) throws TiendaExceptions {
-		
+
 		clientes.crearClienteNatural(nombre, apellidos, identificacion, direccion, telefono, email, fecha);
 	}
 
@@ -48,9 +48,9 @@ public class Tienda {
 
 	public void crearClienteJuridico(String nombre, String apellidos, String identificacion, String direccion,
 			String telefono, String nit, String idTributaria) throws TiendaExceptions {
-		
+
 		clientes.crearClienteJuridico(nombre, apellidos, identificacion, direccion, telefono, nit, idTributaria);
-		
+
 	}
 
 
@@ -78,6 +78,35 @@ public class Tienda {
 	public void crearProductoEnvasado(String nombre, String descripcion, Integer cantDisponible,
 			LocalDate fechaEnvasado, Double peso, String pais, Double valor) throws TiendaExceptions {
 		productos.crearproductoEnvasado(nombre, descripcion, cantDisponible, fechaEnvasado, peso, pais, valor);
+	}
+
+
+	public void crearProductoPerecedero(String descripcion, Integer cantDisponible, String nombre, Double valor,
+			LocalDate fechaVencimiento) throws TiendaExceptions {
+		productos.crearProdcutoPerecedero(descripcion, cantDisponible, nombre, valor, fechaVencimiento);
+	}
+
+
+	public void actualizarProductoEnvasado(Envasado productoSelected, String nombre, String descripcion,
+			LocalDate fecha, String pais, Double peso, Double valor, Integer cantDisponible) {
+		productos.actualizarProductoEnvasado(productoSelected, nombre, descripcion, fecha, pais, peso, valor, cantDisponible);
+	}
+
+
+	public void actualizarProductoPerecedero(Perecedero productoSelected, String nombre, String descripcion,
+			LocalDate fechaVencimiento, Integer cantDisponible, Double valor) {
+		productos.actualizarProductoPerecedero(productoSelected,nombre, descripcion, fechaVencimiento, cantDisponible, valor);
+	}
+
+
+	public void actualizarProductoRefrigerado(Refrigerado productoSelected, String nombre, String descripcion,
+			Integer cantDisponible, Double temperatura, Double valor, Boolean aprobado) {
+		productos.actualizarProductoRefrigerado((Refrigerado) productoSelected, nombre, descripcion, cantDisponible, temperatura, valor, aprobado); 
+
+	}
+
+	public void eliminarCliente(Producto productoSelected) throws TiendaExceptions {
+		productos.eliminar(productoSelected);
 	}
 
 }

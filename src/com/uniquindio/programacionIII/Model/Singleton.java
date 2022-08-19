@@ -77,4 +77,37 @@ public class Singleton {
 		return getInstance().getListaProductos();
 	}
 
+
+	public static void crearProductoPerecedero(String descripcion, Integer cantDisponible, String nombre, Double valor,
+			LocalDate fechaVencimiento) throws TiendaExceptions {
+		getInstance().crearProductoPerecedero(descripcion, cantDisponible, nombre, valor, fechaVencimiento);
+	}
+
+
+	public static void actualizarProductoEnvasado(Envasado productoSelected, String nombre, String descripcion,
+			LocalDate fecha, String pais, Double peso, Double valor, Integer cantDisponible) {
+		getInstance().actualizarProductoEnvasado(productoSelected, nombre, descripcion, fecha, pais, peso, valor, cantDisponible); 
+	}
+
+
+	public static void actualizarProductoPerecedero(Perecedero productoSelected, String nombre, String descripcion,
+			LocalDate fechaVencimiento, Integer cantDisponible, Double valor) {
+		
+		getInstance().actualizarProductoPerecedero(productoSelected,nombre, descripcion, fechaVencimiento, cantDisponible, valor);
+		
+	}
+
+
+	public static void actualizarProductoRefrigerado(Refrigerado productoSelected, String nombre, String descripcion,
+			Integer cantDisponible, Double temperatura, Double valor, Boolean aprobado) {
+		getInstance().actualizarProductoRefrigerado((Refrigerado) productoSelected, nombre, descripcion, cantDisponible, temperatura, valor, aprobado); 
+	}
+
+
+	public static void eliminarProducto(Producto productoSelected) throws TiendaExceptions {
+		getInstance().eliminarCliente(productoSelected);
+	}
+
+
+
 }

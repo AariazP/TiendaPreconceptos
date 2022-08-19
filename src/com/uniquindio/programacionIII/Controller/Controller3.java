@@ -3,7 +3,10 @@ package com.uniquindio.programacionIII.Controller;
 import java.io.IOException;
 
 import com.uniquindio.programacionIII.Application.Main;
+import com.uniquindio.programacionIII.Exceptions.TiendaExceptions;
+import com.uniquindio.programacionIII.Model.Envasado;
 import com.uniquindio.programacionIII.Model.Producto;
+import com.uniquindio.programacionIII.Model.Refrigerado;
 import com.uniquindio.programacionIII.Model.Singleton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,9 +29,16 @@ public class Controller3 {
 	private Stage envasadoStage, perecederoStage, refrigeradoStage;
 
 	private CrearProductoRefrigerado refrigeradoController;
-	
+
 	private CrearProductoEnvasado envasadoController;
 
+	private CrearProductoPerecedero perecederoController;
+	
+	private ActualizarProductoEnvasado actualizarEnvasado;
+	
+	private ActualizarProductoPerecedero actualizarPerecedero;
+	
+	private ActualizarProductoRefrigerado actualizarRefrigerado;
 
 	@FXML
 	private TableColumn<Producto, Integer> colCantDisponble = new TableColumn<Producto, Integer>();
@@ -51,7 +61,84 @@ public class Controller3 {
 
 	@FXML
 	void actualizar(ActionEvent event) {
-		System.out.println("Actualizar");
+
+		Producto productoSelected = tblProductos.getSelectionModel().getSelectedItem();
+
+		if(productoSelected != null) {
+
+			mostrarActualizarProducto(productoSelected);
+
+		}else {
+			main.mostrarAlerta("Para actualizar seleccione un producto de la tabla");
+		}
+	}
+
+	private void mostrarActualizarProducto(Producto productoSelected) {
+
+		if(productoSelected instanceof Envasado) {
+			mostrarActualizarEnvasado(productoSelected);
+		}else if(productoSelected instanceof Refrigerado) {
+			mostrarActualizarRefrigerado(productoSelected);
+		}else {
+			mostrarActualizarPerecedero(productoSelected);
+		}
+	}
+
+	private void mostrarActualizarPerecedero(Producto productoSelected) {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/uniquindio/programacionIII/View/ActualizarProductoPerecedero.fxml"));
+		Parent root = null;
+
+		try {
+			root = loader.load();
+			actualizarPerecedero = loader.getController();
+			actualizarPerecedero.setMain(main);
+			actualizarPerecedero.setProductoSelected(productoSelected);
+			Scene scene = new Scene(root);
+			perecederoStage = new Stage();
+			perecederoStage.setScene(scene);
+			perecederoStage.showAndWait();
+			actualizarTablaProducto();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void mostrarActualizarRefrigerado(Producto productoSelected) {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/uniquindio/programacionIII/View/ActualizarProductoRefrigerado.fxml"));
+		Parent root = null;
+
+		try {
+			root = loader.load();
+			actualizarRefrigerado = loader.getController();
+			actualizarRefrigerado.setMain(main);
+			actualizarRefrigerado.setProductoSelected(productoSelected);
+			Scene scene = new Scene(root);
+			refrigeradoStage = new Stage();
+			refrigeradoStage.setScene(scene);
+			refrigeradoStage.showAndWait();
+			actualizarTablaProducto();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void mostrarActualizarEnvasado(Producto productoSelected) {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/uniquindio/programacionIII/View/ActualizarProductoEnvasado.fxml"));
+		Parent root = null;
+
+		try {
+			root = loader.load();
+			actualizarEnvasado = loader.getController();
+			actualizarEnvasado.setMain(main);
+			actualizarEnvasado.setProductoSelected(productoSelected);
+			Scene scene = new Scene(root);
+			envasadoStage = new Stage();
+			envasadoStage.setScene(scene);
+			envasadoStage.showAndWait();
+			actualizarTablaProducto();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
@@ -61,7 +148,18 @@ public class Controller3 {
 
 	@FXML
 	void eliminar(ActionEvent event) {
-		System.out.println("eliminar");
+		
+		Producto productoSelected = tblProductos.getSelectionModel().getSelectedItem();
+		
+		if(productoSelected != null) {
+			try {
+				Singleton.eliminarProducto(productoSelected);
+			} catch (TiendaExceptions e) {
+				main.mostrarAlerta(e.getMessage());
+			}
+		}else {
+			main.mostrarAlerta("Seleccione un producto de la tabla para eliminar");
+		}
 	}
 
 	@FXML
@@ -97,7 +195,6 @@ public class Controller3 {
 	void crearRefrigerado(ActionEvent event) {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/uniquindio/programacionIII/View/CrearProductoRefrigerado.fxml"));
 		Parent root = null;
-
 		try {
 			root = loader.load();
 			refrigeradoController = loader.getController();
@@ -116,7 +213,21 @@ public class Controller3 {
 
 	@FXML
 	void crearPerecedero(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/uniquindio/programacionIII/View/CrearProductoPerecedero.fxml"));
+		Parent root = null;
 
+		try {
+			root = loader.load();
+			perecederoController = loader.getController();
+			perecederoController.setMain(main);
+			Scene scene = new Scene(root);
+			perecederoStage = new Stage();
+			perecederoStage.setScene(scene);
+			perecederoStage.showAndWait();
+			actualizarTablaProducto();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void actualizarTablaProducto() {
