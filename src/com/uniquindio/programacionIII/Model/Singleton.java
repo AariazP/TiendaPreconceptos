@@ -62,8 +62,8 @@ public class Singleton {
 
 
 	public static void crearProductoEnvasado(String nombre, String descripcion, Integer cantDisponible,
-			Integer temperatura, Double valor) {
-		getInstance().crearProductoEnvasado(nombre, descripcion, cantDisponible, temperatura, valor);
+			LocalDate fechaEnvasado, Double peso, String pais, Double valor) throws TiendaExceptions {
+		getInstance().crearProductoEnvasado(nombre, descripcion, cantDisponible, fechaEnvasado, peso, pais, valor);
 	}
 
 

@@ -27,6 +27,8 @@ public class Controller3 {
 
 	private CrearProductoRefrigerado refrigeradoController;
 	
+	private CrearProductoEnvasado envasadoController;
+
 
 	@FXML
 	private TableColumn<Producto, Integer> colCantDisponble = new TableColumn<Producto, Integer>();
@@ -74,7 +76,21 @@ public class Controller3 {
 
 	@FXML
 	void crearEnvasado(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/uniquindio/programacionIII/View/CrearProductoEnvasado.fxml"));
+		Parent root = null;
 
+		try {
+			root = loader.load();
+			envasadoController = loader.getController();
+			envasadoController.setMain(main);
+			Scene scene = new Scene(root);
+			envasadoStage = new Stage();
+			envasadoStage.setScene(scene);
+			envasadoStage.showAndWait();
+			actualizarTablaProducto();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
@@ -92,10 +108,9 @@ public class Controller3 {
 			refrigeradoStage.showAndWait();
 			actualizarTablaProducto();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 
@@ -111,7 +126,7 @@ public class Controller3 {
 		tblProductos.getItems().addAll(lista);
 		tblProductos.refresh();
 	}
-	
+
 	@FXML
 	public void initialize() {
 		this.colValor.setCellValueFactory(new PropertyValueFactory<>("valor"));

@@ -64,13 +64,6 @@ public class Tienda {
 		clientes.actualizarClienteNatural(cliente, nombre, apellidos, identificacion, direccion, telefono, email, fecha);
 	}
 
-
-	public void crearProductoEnvasado(String nombre, String descripcion, Integer cantDisponible, Integer temperatura,
-			Double valor) {
-		productos.crearproductoEnvasado(nombre, descripcion, cantDisponible, temperatura, valor);
-	}
-
-
 	public void crearProductoRefrigerado(String nombre, String descripcion, Integer cantDisponible, Integer temperatura,
 			Double valor, Boolean aprobado) throws TiendaExceptions {
 		productos.crearProductoRefrigerado(nombre, descripcion, cantDisponible, temperatura, valor, aprobado);
@@ -79,6 +72,12 @@ public class Tienda {
 
 	public ArrayList<Producto> getListaProductos() {
 		return productos.getProductos();
+	}
+
+
+	public void crearProductoEnvasado(String nombre, String descripcion, Integer cantDisponible,
+			LocalDate fechaEnvasado, Double peso, String pais, Double valor) throws TiendaExceptions {
+		productos.crearproductoEnvasado(nombre, descripcion, cantDisponible, fechaEnvasado, peso, pais, valor);
 	}
 
 }
