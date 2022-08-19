@@ -7,6 +7,7 @@ import lombok.*;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class Cliente {
 
     private String nombre, apellido, identificacion, direccion, telefono;

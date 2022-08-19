@@ -8,11 +8,12 @@ import com.uniquindio.programacionIII.Exceptions.TiendaExceptions;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
-
+@ToString
 
 public class Tienda {
 
@@ -61,6 +62,23 @@ public class Tienda {
 	public void actualizarClienteNatural(Cliente cliente, String nombre, String apellidos, String identificacion, String direccion,
 			String telefono, String email, LocalDate fecha) {
 		clientes.actualizarClienteNatural(cliente, nombre, apellidos, identificacion, direccion, telefono, email, fecha);
+	}
+
+
+	public void crearProductoEnvasado(String nombre, String descripcion, Integer cantDisponible, Integer temperatura,
+			Double valor) {
+		productos.crearproductoEnvasado(nombre, descripcion, cantDisponible, temperatura, valor);
+	}
+
+
+	public void crearProductoRefrigerado(String nombre, String descripcion, Integer cantDisponible, Integer temperatura,
+			Double valor, Boolean aprobado) throws TiendaExceptions {
+		productos.crearProductoRefrigerado(nombre, descripcion, cantDisponible, temperatura, valor, aprobado);
+	}
+
+
+	public ArrayList<Producto> getListaProductos() {
+		return productos.getProductos();
 	}
 
 }

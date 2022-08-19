@@ -17,7 +17,7 @@ public class Main extends Application {
 	private Controller1 controller1;
 	private Controller2 controller2;
 	private Controller3 controller3;
-	private Stage stage;
+	private Stage stageInicial, stageClientes, stageProductos;
 	private AlertaController alertaController;
 
 
@@ -33,7 +33,7 @@ public class Main extends Application {
 			controller1 = loader.getController();
 			controller1.setMain(this);
 			primaryStage.setScene(scene);
-			stage = primaryStage;
+			stageInicial = primaryStage;
 			primaryStage.show();
 
 		} catch(Exception e) {
@@ -51,7 +51,10 @@ public class Main extends Application {
 			Scene scene = new Scene(loader.load());
 			controller2 = loader.getController();
 			controller2.setMain(this);
-			stage.setScene(scene);
+			stageClientes = new Stage();
+			stageClientes.setScene(scene);
+			stageInicial.close();
+			stageClientes.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,7 +68,10 @@ public class Main extends Application {
 			Scene scene = new Scene(loader.load());
 			controller3 = loader.getController();
 			controller3.setMain(this);
-			stage.setScene(scene);
+			stageProductos = new Stage();
+			stageProductos.setScene(scene);
+			stageProductos.close();
+			stageProductos.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,5 +99,14 @@ public class Main extends Application {
 	public void cerrarFrameClienteNatura() {
 		controller2.cerrarFrameClienteNatura();
 	}
+
+	public void irLogin() {
+		
+		if(stageClientes != null) stageClientes.close();
+		if(stageProductos != null) stageProductos.close();
+		
+		stageInicial.show();
+	}
+
 
 }

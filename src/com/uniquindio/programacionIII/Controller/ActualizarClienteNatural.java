@@ -58,7 +58,7 @@ public class ActualizarClienteNatural {
 					&& !email.equals("") && fecha != null && !direccion.equals("")) {
 				
 				Singleton.actualizarClienteNatural(cliente, nombre, apellidos, identificacion, direccion, telefono, email, fecha);
-				main.mostrarAlerta("Cliente creado con exito");
+				main.mostrarAlerta("Cliente actualizado con exito");
 				
 			}else {
 				

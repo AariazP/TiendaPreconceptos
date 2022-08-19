@@ -84,7 +84,6 @@ public class Controller2 {
 
 				mostrarActualizarFrame(clienteSelected);
 
-
 			}else {
 
 			}
@@ -191,7 +190,7 @@ public class Controller2 {
 
 	@FXML
 	void irLogin(ActionEvent event) {
-
+		main.irLogin();
 	}
 
 	@FXML

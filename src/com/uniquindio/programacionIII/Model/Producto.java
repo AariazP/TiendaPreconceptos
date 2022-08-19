@@ -14,12 +14,12 @@ public class Producto {
 
     private String nombre, aboutProduct, id;
     private Double valor;
-    private int cantDisponible;
+    private Integer cantDisponible;
 
     public Producto(){
 
     }
-    public Producto(String aboutProduct, int cantDisponible, String nombre, Double valor) {
+    public Producto(String aboutProduct, Integer cantDisponible, String nombre, Double valor) {
 
         this.aboutProduct = aboutProduct;
         this.cantDisponible = cantDisponible;

@@ -60,4 +60,21 @@ public class Singleton {
 		getInstance().actualizarClienteNatural(cliente,nombre, apellidos, identificacion, direccion, telefono, email, fecha);
 	}
 
+
+	public static void crearProductoEnvasado(String nombre, String descripcion, Integer cantDisponible,
+			Integer temperatura, Double valor) {
+		getInstance().crearProductoEnvasado(nombre, descripcion, cantDisponible, temperatura, valor);
+	}
+
+
+	public static void crearProductoRefrigerado(String nombre, String descripcion, Integer cantDisponible,
+			Integer temperatura, Double valor, Boolean aprobado) throws TiendaExceptions {
+		getInstance().crearProductoRefrigerado(nombre, descripcion, cantDisponible, temperatura, valor, aprobado);
+	}
+
+
+	public static ArrayList<Producto> getProductos() {
+		return getInstance().getListaProductos();
+	}
+
 }
