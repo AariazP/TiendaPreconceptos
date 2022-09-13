@@ -10,11 +10,68 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import lombok.Data;
 
-@Data
+
+
+
 public class ActualizarProductoPerecedero {
 	
+	public Main getMain() {
+		return main;
+	}
+
+	public void setMain(Main main) {
+		this.main = main;
+	}
+
+	public Producto getProductoSelected() {
+		return productoSelected;
+	}
+
+	public void setProductoSelected(Producto productoSelected) {
+		this.productoSelected = productoSelected;
+	}
+
+	public TextField getTxtCantDisponible() {
+		return txtCantDisponible;
+	}
+
+	public void setTxtCantDisponible(TextField txtCantDisponible) {
+		this.txtCantDisponible = txtCantDisponible;
+	}
+
+	public TextField getTxtDescripcion() {
+		return txtDescripcion;
+	}
+
+	public void setTxtDescripcion(TextField txtDescripcion) {
+		this.txtDescripcion = txtDescripcion;
+	}
+
+	public DatePicker getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(DatePicker fecha) {
+		this.fecha = fecha;
+	}
+
+	public TextField getTxtNombre() {
+		return txtNombre;
+	}
+
+	public void setTxtNombre(TextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+	public TextField getTxtValor() {
+		return txtValor;
+	}
+
+	public void setTxtValor(TextField txtValor) {
+		this.txtValor = txtValor;
+	}
+
 	private Main main;
 	
 	private Producto productoSelected; 

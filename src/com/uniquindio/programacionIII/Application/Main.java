@@ -41,6 +41,62 @@ public class Main extends Application {
 		}
 	}
 
+	public Controller1 getController1() {
+		return controller1;
+	}
+
+	public void setController1(Controller1 controller1) {
+		this.controller1 = controller1;
+	}
+
+	public Controller2 getController2() {
+		return controller2;
+	}
+
+	public void setController2(Controller2 controller2) {
+		this.controller2 = controller2;
+	}
+
+	public Controller3 getController3() {
+		return controller3;
+	}
+
+	public void setController3(Controller3 controller3) {
+		this.controller3 = controller3;
+	}
+
+	public Stage getStageInicial() {
+		return stageInicial;
+	}
+
+	public void setStageInicial(Stage stageInicial) {
+		this.stageInicial = stageInicial;
+	}
+
+	public Stage getStageClientes() {
+		return stageClientes;
+	}
+
+	public void setStageClientes(Stage stageClientes) {
+		this.stageClientes = stageClientes;
+	}
+
+	public Stage getStageProductos() {
+		return stageProductos;
+	}
+
+	public void setStageProductos(Stage stageProductos) {
+		this.stageProductos = stageProductos;
+	}
+
+	public AlertaController getAlertaController() {
+		return alertaController;
+	}
+
+	public void setAlertaController(AlertaController alertaController) {
+		this.alertaController = alertaController;
+	}
+
 	public static void main(String[] args) {
 		launch(args);
 	}

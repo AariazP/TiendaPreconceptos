@@ -2,15 +2,26 @@ package com.uniquindio.programacionIII.Model;
 
 import java.time.LocalDate;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-@Getter
-@Setter
-@AllArgsConstructor
+
 
 
 public class Perecedero extends Producto{
+
+    public LocalDate getFechaVencimiento() {
+        return fechaVencimiento;
+    }
+
+    public void setFechaVencimiento(LocalDate fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
     private LocalDate fechaVencimiento;
     private String tipo;

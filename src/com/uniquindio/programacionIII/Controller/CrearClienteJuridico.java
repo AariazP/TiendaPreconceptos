@@ -8,10 +8,90 @@ import com.uniquindio.programacionIII.Model.Singleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import lombok.Data;
 
-@Data
+
+
 public class CrearClienteJuridico {
+
+	public Main getMain() {
+		return main;
+	}
+
+
+	public void setMain(Main main) {
+		this.main = main;
+	}
+
+
+	public TextField getTxtApellidos() {
+		return txtApellidos;
+	}
+
+
+	public void setTxtApellidos(TextField txtApellidos) {
+		this.txtApellidos = txtApellidos;
+	}
+
+
+	public TextField getTxtDireccion() {
+		return txtDireccion;
+	}
+
+
+	public void setTxtDireccion(TextField txtDireccion) {
+		this.txtDireccion = txtDireccion;
+	}
+
+
+	public TextField getTxtId() {
+		return txtId;
+	}
+
+
+	public void setTxtId(TextField txtId) {
+		this.txtId = txtId;
+	}
+
+
+	public TextField getTxtNit() {
+		return txtNit;
+	}
+
+
+	public void setTxtNit(TextField txtNit) {
+		this.txtNit = txtNit;
+	}
+
+
+	public TextField getTxtNombre() {
+		return txtNombre;
+	}
+
+
+	public void setTxtNombre(TextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+
+	public TextField getTxtTelefono() {
+		return txtTelefono;
+	}
+
+
+	public void setTxtTelefono(TextField txtTelefono) {
+		this.txtTelefono = txtTelefono;
+	}
+
+
+	public TextField getTxtTributaria() {
+		return txtTributaria;
+	}
+
+
+	public void setTxtTributaria(TextField txtTributaria) {
+		this.txtTributaria = txtTributaria;
+	}
+
 
 	private Main main;
 

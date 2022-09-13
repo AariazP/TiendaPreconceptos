@@ -6,13 +6,51 @@ import com.uniquindio.programacionIII.Application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import lombok.Data;
 
-@Data
 
 public class Controller1 {
 
-	private Main main;
+	public Main getMain() {
+        return main;
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
+    }
+
+    public ResourceBundle getResources() {
+        return resources;
+    }
+
+    public void setResources(ResourceBundle resources) {
+        this.resources = resources;
+    }
+
+    public URL getLocation() {
+        return location;
+    }
+
+    public void setLocation(URL location) {
+        this.location = location;
+    }
+
+    public Button getBtnIrCliente() {
+        return btnIrCliente;
+    }
+
+    public void setBtnIrCliente(Button btnIrCliente) {
+        this.btnIrCliente = btnIrCliente;
+    }
+
+    public Button getBtnIrProductos() {
+        return btnIrProductos;
+    }
+
+    public void setBtnIrProductos(Button btnIrProductos) {
+        this.btnIrProductos = btnIrProductos;
+    }
+
+    private Main main;
 	
     @FXML
     private ResourceBundle resources;

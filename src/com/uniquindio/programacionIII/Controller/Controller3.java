@@ -19,10 +19,138 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import lombok.Data;
 
-@Data
+
+
 public class Controller3 {
+
+	public Main getMain() {
+		return main;
+	}
+
+	public void setMain(Main main) {
+		this.main = main;
+	}
+
+	public Stage getEnvasadoStage() {
+		return envasadoStage;
+	}
+
+	public void setEnvasadoStage(Stage envasadoStage) {
+		this.envasadoStage = envasadoStage;
+	}
+
+	public Stage getPerecederoStage() {
+		return perecederoStage;
+	}
+
+	public void setPerecederoStage(Stage perecederoStage) {
+		this.perecederoStage = perecederoStage;
+	}
+
+	public Stage getRefrigeradoStage() {
+		return refrigeradoStage;
+	}
+
+	public void setRefrigeradoStage(Stage refrigeradoStage) {
+		this.refrigeradoStage = refrigeradoStage;
+	}
+
+	public CrearProductoRefrigerado getRefrigeradoController() {
+		return refrigeradoController;
+	}
+
+	public void setRefrigeradoController(CrearProductoRefrigerado refrigeradoController) {
+		this.refrigeradoController = refrigeradoController;
+	}
+
+	public CrearProductoEnvasado getEnvasadoController() {
+		return envasadoController;
+	}
+
+	public void setEnvasadoController(CrearProductoEnvasado envasadoController) {
+		this.envasadoController = envasadoController;
+	}
+
+	public CrearProductoPerecedero getPerecederoController() {
+		return perecederoController;
+	}
+
+	public void setPerecederoController(CrearProductoPerecedero perecederoController) {
+		this.perecederoController = perecederoController;
+	}
+
+	public ActualizarProductoEnvasado getActualizarEnvasado() {
+		return actualizarEnvasado;
+	}
+
+	public void setActualizarEnvasado(ActualizarProductoEnvasado actualizarEnvasado) {
+		this.actualizarEnvasado = actualizarEnvasado;
+	}
+
+	public ActualizarProductoPerecedero getActualizarPerecedero() {
+		return actualizarPerecedero;
+	}
+
+	public void setActualizarPerecedero(ActualizarProductoPerecedero actualizarPerecedero) {
+		this.actualizarPerecedero = actualizarPerecedero;
+	}
+
+	public ActualizarProductoRefrigerado getActualizarRefrigerado() {
+		return actualizarRefrigerado;
+	}
+
+	public void setActualizarRefrigerado(ActualizarProductoRefrigerado actualizarRefrigerado) {
+		this.actualizarRefrigerado = actualizarRefrigerado;
+	}
+
+	public TableColumn<Producto, Integer> getColCantDisponble() {
+		return colCantDisponble;
+	}
+
+	public void setColCantDisponble(TableColumn<Producto, Integer> colCantDisponble) {
+		this.colCantDisponble = colCantDisponble;
+	}
+
+	public TableColumn<Producto, String> getColNombre() {
+		return colNombre;
+	}
+
+	public void setColNombre(TableColumn<Producto, String> colNombre) {
+		this.colNombre = colNombre;
+	}
+
+	public TableColumn<Producto, String> getColTipo() {
+		return colTipo;
+	}
+
+	public void setColTipo(TableColumn<Producto, String> colTipo) {
+		this.colTipo = colTipo;
+	}
+
+	public TableColumn<Producto, String> getColValor() {
+		return colValor;
+	}
+
+	public void setColValor(TableColumn<Producto, String> colValor) {
+		this.colValor = colValor;
+	}
+
+	public TableView<Producto> getTblProductos() {
+		return tblProductos;
+	}
+
+	public void setTblProductos(TableView<Producto> tblProductos) {
+		this.tblProductos = tblProductos;
+	}
+
+	public ObservableList<Producto> getLista() {
+		return lista;
+	}
+
+	public void setLista(ObservableList<Producto> lista) {
+		this.lista = lista;
+	}
 
 	private Main main;
 

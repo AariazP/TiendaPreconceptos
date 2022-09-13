@@ -19,11 +19,200 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import lombok.Data;
 
-@Data
+
+
 public class Controller2 {
 
+
+	public Main getMain() {
+		return main;
+	}
+
+
+	public void setMain(Main main) {
+		this.main = main;
+	}
+
+
+	public Button getBtnActualizar() {
+		return btnActualizar;
+	}
+
+
+	public void setBtnActualizar(Button btnActualizar) {
+		this.btnActualizar = btnActualizar;
+	}
+
+
+	public Button getBtnComprar() {
+		return btnComprar;
+	}
+
+
+	public void setBtnComprar(Button btnComprar) {
+		this.btnComprar = btnComprar;
+	}
+
+
+	public Button getBtnEliminar() {
+		return btnEliminar;
+	}
+
+
+	public void setBtnEliminar(Button btnEliminar) {
+		this.btnEliminar = btnEliminar;
+	}
+
+
+	public Button getBtnReemplazar() {
+		return btnReemplazar;
+	}
+
+
+	public void setBtnReemplazar(Button btnReemplazar) {
+		this.btnReemplazar = btnReemplazar;
+	}
+
+
+	public Button getBtncrear() {
+		return btncrear;
+	}
+
+
+	public void setBtncrear(Button btncrear) {
+		this.btncrear = btncrear;
+	}
+
+
+	public TableView<Cliente> getTblClientes() {
+		return tblClientes;
+	}
+
+
+	public void setTblClientes(TableView<Cliente> tblClientes) {
+		this.tblClientes = tblClientes;
+	}
+
+
+	public ObservableList<Cliente> getLista() {
+		return lista;
+	}
+
+
+	public void setLista(ObservableList<Cliente> lista) {
+		this.lista = lista;
+	}
+
+
+	public TableColumn<Cliente, Integer> getColD() {
+		return colD;
+	}
+
+
+	public void setColD(TableColumn<Cliente, Integer> colD) {
+		this.colD = colD;
+	}
+
+
+	public TableColumn<Cliente, String> getColNombre() {
+		return colNombre;
+	}
+
+
+	public void setColNombre(TableColumn<Cliente, String> colNombre) {
+		this.colNombre = colNombre;
+	}
+
+
+	public TableColumn<Cliente, String> getColTelefono() {
+		return colTelefono;
+	}
+
+
+	public void setColTelefono(TableColumn<Cliente, String> colTelefono) {
+		this.colTelefono = colTelefono;
+	}
+
+
+	public TableColumn<Cliente, String> getColTipo() {
+		return colTipo;
+	}
+
+
+	public void setColTipo(TableColumn<Cliente, String> colTipo) {
+		this.colTipo = colTipo;
+	}
+
+
+	public CrearClienteNatural getControllerClienteNatural() {
+		return controllerClienteNatural;
+	}
+
+
+	public void setControllerClienteNatural(CrearClienteNatural controllerClienteNatural) {
+		this.controllerClienteNatural = controllerClienteNatural;
+	}
+
+
+	public CrearClienteJuridico getControllerClienteJuridico() {
+		return controllerClienteJuridico;
+	}
+
+
+	public void setControllerClienteJuridico(CrearClienteJuridico controllerClienteJuridico) {
+		this.controllerClienteJuridico = controllerClienteJuridico;
+	}
+
+
+	public ActualizarClienteNatural getControllerActualizarClienteNatural() {
+		return controllerActualizarClienteNatural;
+	}
+
+
+	public void setControllerActualizarClienteNatural(ActualizarClienteNatural controllerActualizarClienteNatural) {
+		this.controllerActualizarClienteNatural = controllerActualizarClienteNatural;
+	}
+
+
+	public RealizarCompra getCompraController() {
+		return compraController;
+	}
+
+
+	public void setCompraController(RealizarCompra compraController) {
+		this.compraController = compraController;
+	}
+
+
+	public Stage getStageNatural() {
+		return stageNatural;
+	}
+
+
+	public void setStageNatural(Stage stageNatural) {
+		this.stageNatural = stageNatural;
+	}
+
+
+	public Stage getStageJuridico() {
+		return stageJuridico;
+	}
+
+
+	public void setStageJuridico(Stage stageJuridico) {
+		this.stageJuridico = stageJuridico;
+	}
+
+
+	public Stage getStageCompra() {
+		return stageCompra;
+	}
+
+
+	public void setStageCompra(Stage stageCompra) {
+		this.stageCompra = stageCompra;
+	}
 
 	private Main main;
 
@@ -65,8 +254,10 @@ public class Controller2 {
 	private CrearClienteJuridico controllerClienteJuridico;
 
 	private ActualizarClienteNatural controllerActualizarClienteNatural;
+	
+	private RealizarCompra compraController;
 
-	private Stage stageNatural, stageJuridico;
+	private Stage stageNatural, stageJuridico, stageCompra;
 
 
 	@FXML
@@ -185,7 +376,30 @@ public class Controller2 {
 
 	@FXML
 	void realizarCompra(ActionEvent event) {
-		System.out.println("comprar");
+		
+		Cliente clienteSelected = tblClientes.getSelectionModel().getSelectedItem();
+		if(clienteSelected != null) {
+			
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/uniquindio/programacionIII/View/RealizarCompra.fxml"));
+			Parent root = null;
+			try {
+				root = loader.load();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			compraController = loader.getController();
+			compraController.setMain(main);
+			compraController.setClienteSelected(clienteSelected);
+			Scene scene = new Scene(root);
+			stageCompra = new Stage();
+			stageCompra.setScene(scene);
+			stageCompra.showAndWait();
+
+		}else {
+			main.mostrarAlerta("Para hacer la compra seleccione un cliente de la tabla");
+		}
+		
+		
 	}
 
 	@FXML

@@ -11,11 +11,83 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import lombok.Data;
 
-@Data
+
+
 public class ActualizarClienteNatural {
 	
+	public Main getMain() {
+		return main;
+	}
+
+	public void setMain(Main main) {
+		this.main = main;
+	}
+
+	public TextField getTxtApellido() {
+		return txtApellido;
+	}
+
+	public void setTxtApellido(TextField txtApellido) {
+		this.txtApellido = txtApellido;
+	}
+
+	public DatePicker getTxtDate() {
+		return txtDate;
+	}
+
+	public void setTxtDate(DatePicker txtDate) {
+		this.txtDate = txtDate;
+	}
+
+	public TextField getTxtDireccion() {
+		return txtDireccion;
+	}
+
+	public void setTxtDireccion(TextField txtDireccion) {
+		this.txtDireccion = txtDireccion;
+	}
+
+	public TextField getTxtEmail() {
+		return txtEmail;
+	}
+
+	public void setTxtEmail(TextField txtEmail) {
+		this.txtEmail = txtEmail;
+	}
+
+	public TextField getTxtIdentificacion() {
+		return txtIdentificacion;
+	}
+
+	public void setTxtIdentificacion(TextField txtIdentificacion) {
+		this.txtIdentificacion = txtIdentificacion;
+	}
+
+	public TextField getTxtNombre() {
+		return txtNombre;
+	}
+
+	public void setTxtNombre(TextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+	public TextField getTxtTelefono() {
+		return txtTelefono;
+	}
+
+	public void setTxtTelefono(TextField txtTelefono) {
+		this.txtTelefono = txtTelefono;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	private Main main;
 	
 	@FXML

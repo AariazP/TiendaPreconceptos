@@ -4,15 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import com.uniquindio.programacionIII.Exceptions.TiendaExceptions;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
-@AllArgsConstructor
 
 public class Singleton {
+	
 	private static Tienda tienda;
 
 	public static Tienda getInstance(String ciudad){
@@ -106,6 +101,16 @@ public class Singleton {
 
 	public static void eliminarProducto(Producto productoSelected) throws TiendaExceptions {
 		getInstance().eliminarCliente(productoSelected);
+	}
+
+
+	public static boolean existeDisponibilidad(Producto productoSelected, Integer cantidadComprada) {
+		return getInstance().existeDisponibilidad(productoSelected, cantidadComprada);
+	}
+
+
+	public static void reducirCantidadProducto(Producto productoSelected, Integer cantidadComprada) {
+		getInstance().reducirCantidadProducto(productoSelected, cantidadComprada);
 	}
 
 

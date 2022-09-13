@@ -4,15 +4,19 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import com.uniquindio.programacionIII.Exceptions.EscrituraException;
 import com.uniquindio.programacionIII.Exceptions.TiendaExceptions;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-@Getter
-@Setter
-@AllArgsConstructor
+
+
 public class ICliente implements CRUDTienda<Cliente> {
 
-    private ArrayList<Cliente> clientes;
+    public ArrayList<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(ArrayList<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+
+	private ArrayList<Cliente> clientes;
     
     
     public ICliente() {

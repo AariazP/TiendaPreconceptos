@@ -1,15 +1,50 @@
 package com.uniquindio.programacionIII.Model;
 
 import java.time.LocalDate;
-import lombok.Getter;
-import lombok.Setter;
 
-
-@Getter
-@Setter
 public class Envasado extends Producto{
 
-    private LocalDate fechaEnvasado;
+    public LocalDate getFechaEnvasado() {
+		return fechaEnvasado;
+	}
+
+
+	public void setFechaEnvasado(LocalDate fechaEnvasado) {
+		this.fechaEnvasado = fechaEnvasado;
+	}
+
+
+	public Double getPeso() {
+		return peso;
+	}
+
+
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
+
+
+	public Paises getPais() {
+		return pais;
+	}
+
+
+	public void setPais(Paises pais) {
+		this.pais = pais;
+	}
+
+
+	public String getTipo() {
+		return tipo;
+	}
+
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+
+	private LocalDate fechaEnvasado;
     private Double peso;
     private Paises pais; 
     private String tipo;

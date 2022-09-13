@@ -5,19 +5,41 @@ import java.util.ArrayList;
 
 import com.uniquindio.programacionIII.Exceptions.TiendaExceptions;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@ToString
 
 public class Tienda {
 
 	private String ciudad;
+	public String getCiudad() {
+		return ciudad;
+	}
+
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+
+	public ICliente getClientes() {
+		return clientes;
+	}
+
+
+	public void setClientes(ICliente clientes) {
+		this.clientes = clientes;
+	}
+
+
+	public IProducto getProductos() {
+		return productos;
+	}
+
+
+	public void setProductos(IProducto productos) {
+		this.productos = productos;
+	}
+
+
 	private ICliente clientes;
 	private IProducto productos;
 
@@ -107,6 +129,16 @@ public class Tienda {
 
 	public void eliminarCliente(Producto productoSelected) throws TiendaExceptions {
 		productos.eliminar(productoSelected);
+	}
+
+
+	public boolean existeDisponibilidad(Producto productoSelected, Integer cantidadComprada) {
+		return productos.existeDisponibilidad(productoSelected, cantidadComprada);
+	}
+
+
+	public void reducirCantidadProducto(Producto productoSelected, Integer cantidadComprada) {
+		productos.reducirCantidadProducto(productoSelected, cantidadComprada);
 	}
 
 }

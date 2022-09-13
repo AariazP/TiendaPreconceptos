@@ -11,13 +11,91 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import lombok.Data;
 
-@Data
 public class ActualizarProductoRefrigerado {
 	
 	
-	private Main main;
+	public Main getMain() {
+        return main;
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
+    }
+
+    public Producto getProductoSelected() {
+        return productoSelected;
+    }
+
+    public void setProductoSelected(Producto productoSelected) {
+        this.productoSelected = productoSelected;
+    }
+
+    public ResourceBundle getResources() {
+        return resources;
+    }
+
+    public void setResources(ResourceBundle resources) {
+        this.resources = resources;
+    }
+
+    public URL getLocation() {
+        return location;
+    }
+
+    public void setLocation(URL location) {
+        this.location = location;
+    }
+
+    public CheckBox getCheckAprobado() {
+        return checkAprobado;
+    }
+
+    public void setCheckAprobado(CheckBox checkAprobado) {
+        this.checkAprobado = checkAprobado;
+    }
+
+    public TextField getTxtCantDisponible() {
+        return txtCantDisponible;
+    }
+
+    public void setTxtCantDisponible(TextField txtCantDisponible) {
+        this.txtCantDisponible = txtCantDisponible;
+    }
+
+    public TextField getTxtDescripcion() {
+        return txtDescripcion;
+    }
+
+    public void setTxtDescripcion(TextField txtDescripcion) {
+        this.txtDescripcion = txtDescripcion;
+    }
+
+    public TextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public void setTxtNombre(TextField txtNombre) {
+        this.txtNombre = txtNombre;
+    }
+
+    public TextField getTxtTemperatura() {
+        return txtTemperatura;
+    }
+
+    public void setTxtTemperatura(TextField txtTemperatura) {
+        this.txtTemperatura = txtTemperatura;
+    }
+
+    public TextField getTxtValor() {
+        return txtValor;
+    }
+
+    public void setTxtValor(TextField txtValor) {
+        this.txtValor = txtValor;
+    }
+
+    private Main main;
 	
 	private Producto productoSelected;
 

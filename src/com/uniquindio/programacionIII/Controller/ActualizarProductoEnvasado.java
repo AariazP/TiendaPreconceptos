@@ -13,11 +13,105 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import lombok.Data;
 
 
-@Data
 public class ActualizarProductoEnvasado {
+
+	public Main getMain() {
+		return main;
+	}
+
+	public void setMain(Main main) {
+		this.main = main;
+	}
+
+	public Producto getProductoSelected() {
+		return productoSelected;
+	}
+
+	public void setProductoSelected(Producto productoSelected) {
+		this.productoSelected = productoSelected;
+	}
+
+	public String[] getPaises() {
+		return paises;
+	}
+
+	public void setPaises(String[] paises) {
+		this.paises = paises;
+	}
+
+	public ComboBox<String> getCmbPaises() {
+		return cmbPaises;
+	}
+
+	public void setCmbPaises(ComboBox<String> cmbPaises) {
+		this.cmbPaises = cmbPaises;
+	}
+
+	public ResourceBundle getResources() {
+		return resources;
+	}
+
+	public void setResources(ResourceBundle resources) {
+		this.resources = resources;
+	}
+
+	public URL getLocation() {
+		return location;
+	}
+
+	public void setLocation(URL location) {
+		this.location = location;
+	}
+
+	public DatePicker getFechaEnvasado() {
+		return fechaEnvasado;
+	}
+
+	public void setFechaEnvasado(DatePicker fechaEnvasado) {
+		this.fechaEnvasado = fechaEnvasado;
+	}
+
+	public TextField getTxtCantDisponible() {
+		return txtCantDisponible;
+	}
+
+	public void setTxtCantDisponible(TextField txtCantDisponible) {
+		this.txtCantDisponible = txtCantDisponible;
+	}
+
+	public TextField getTxtDescripcion() {
+		return txtDescripcion;
+	}
+
+	public void setTxtDescripcion(TextField txtDescripcion) {
+		this.txtDescripcion = txtDescripcion;
+	}
+
+	public TextField getTxtNombre() {
+		return txtNombre;
+	}
+
+	public void setTxtNombre(TextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+	public TextField getTxtPeso() {
+		return txtPeso;
+	}
+
+	public void setTxtPeso(TextField txtPeso) {
+		this.txtPeso = txtPeso;
+	}
+
+	public TextField getTxtValor() {
+		return txtValor;
+	}
+
+	public void setTxtValor(TextField txtValor) {
+		this.txtValor = txtValor;
+	}
 
 	private Main main;
 	

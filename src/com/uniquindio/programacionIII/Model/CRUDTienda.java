@@ -8,20 +8,20 @@ public interface CRUDTienda<T> {
 	
 	
 	/**
-	 * MÉTODO QUE DEVUELVE UNA LISTA DE PRODUCTOS DE TIPO T
+	 * MÉTODO QUE DEVUELVE UNA LISTA DE TIPO T
 	 * @return
 	 */
 	ArrayList<T> listar() throws TiendaExceptions; 
 	
 	/**
-	 * MÉTODO QUE PERMITE BUSCAR UN PRODUCTO DADO SU ID
+	 * MÉTODO QUE PERMITE BUSCA DADO SU ID
 	 * @param id
 	 * @return
 	 */
 	T buscarId(Integer id) throws TiendaExceptions; 
 	
 	/**
-	 * MÉTODO QUE PERMITE CREAR UN PRODUCTO DE TIPO T
+	 * MÉTODO QUE PERMITE CREAR UN DE TIPO T
 	 * @param obj
 	 */
 	void crear(T obj) throws TiendaExceptions; 

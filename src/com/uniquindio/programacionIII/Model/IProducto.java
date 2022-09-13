@@ -6,15 +6,16 @@ import java.util.ArrayList;
 import com.uniquindio.programacionIII.Exceptions.EscrituraException;
 import com.uniquindio.programacionIII.Exceptions.TiendaExceptions;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 
-
-@Getter
-@Setter
-@AllArgsConstructor
 public class IProducto implements CRUDTienda<Producto>{
+
+	public ArrayList<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(ArrayList<Producto> productos) {
+		this.productos = productos;
+	}
 
 	private ArrayList<Producto> productos;
 
@@ -131,6 +132,14 @@ public class IProducto implements CRUDTienda<Producto>{
 		productoSelected.setValor(valor);
 		productoSelected.setAprobado(aprobado);
 		
+	}
+
+	public boolean existeDisponibilidad(Producto productoSelected, Integer cantidadComprada) {
+		return productoSelected.getCantDisponible() <= cantidadComprada ? true:false;
+	}
+
+	public void reducirCantidadProducto(Producto productoSelected, Integer cantidadComprada) {
+		productoSelected.reducirCantidadProducto(cantidadComprada);
 	}
 	
 
